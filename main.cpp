@@ -30,10 +30,13 @@ int main(int, char const**)
     sf::RenderWindow window(sf::VideoMode(800, 600), "Rogue-Like RPG 1.00");
 
     Map map(sf::Vector2i(10, 10));
-    map.setTileSize(sf::Vector2f(40, 40));
+    map.setTileSize(sf::Vector2f(60, 60));
+
+    map.getTile(4, 5)->texture = "default2";
 
     TextureLoader textures;
     textures.load("default", "resources/cb.bmp");
+    textures.load("default2", "resources/icon.png");
 
 // Start the game loop
     while (window.isOpen())
