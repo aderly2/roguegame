@@ -60,7 +60,7 @@ class object objectArray(0);
 vector<object>::const_iterator iter2;
 std::vector<object> theObjectArray;
 //
-     *///
+     */////
 // Create the main window
 sf::RenderWindow window(sf::VideoMode(800, 600), "Rogue-Like RPG 1.00");
 //
