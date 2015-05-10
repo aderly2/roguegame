@@ -8,13 +8,12 @@
 #include <unistd.h>
 #include <iostream>
 
-using namespace std;
-
 //#include "player.h"
 #include "enemy.h"
 #include "object.h"
 
 #include "Map.h"
+#include "TextureLoader.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~ RANDOM FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 int generateRandom(int max)
@@ -29,6 +28,12 @@ int main(int, char const**)
 {
 // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Rogue-Like RPG 1.00");
+
+    Map map(sf::Vector2i(10, 10));
+    map.setTileSize(sf::Vector2f(40, 40));
+
+    TextureLoader textures;
+    textures.load("default", "resources/cb.bmp");
 
 // Start the game loop
     while (window.isOpen())
@@ -50,7 +55,7 @@ int main(int, char const**)
         window.clear();
 
         // Draw Player
-//        window.draw(player);
+        map.draw(window, textures);
 
         // Update the window
         window.display();

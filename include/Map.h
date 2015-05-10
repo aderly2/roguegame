@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "object.h"
+#include "TextureLoader.h"
 
 struct Tile
 {
@@ -28,8 +29,20 @@ class Map
 
         Tile* getTile(int x, int y);
         Tile* getTile(sf::Vector2i pos);
+        void  setTile(int x, int y, Tile tile);
+
+        sf::Vector2i getMapSize();
+
+        void  setTileSize(sf::Vector2f size);
+        sf::Vector2f getTileSize();
+
+        void draw(sf::RenderTarget& target, TextureLoader& textures, sf::IntRect rect = sf::IntRect(0,0,0,0));
+
     protected:
     private:
+        sf::Vector2i mMapSize;
+        sf::Vector2f mTileSize;
+
         TilesMap mTilemap;
 };
 
